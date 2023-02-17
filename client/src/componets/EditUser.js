@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, FormControl, FormGroup, Input, InputLabel, styled, Typography} from "@mui/material";
 import {editUser, getUserById} from "../services/CrudApi";
 import { useNavigate, useParams} from "react-router-dom";
+import cogoToast from "cogo-toast";
 
 const FormG = styled(FormGroup)`
           margin: 2rem auto 0 auto;
@@ -50,12 +51,11 @@ const EditUser = () => {
     const loadUserDetails =async () => {
         const res=  await getUserById(id);
         setUser(res.data)
-
     }
     const editUserDetails = async () => {
         await editUser(user,id)
         navigate('/all')
-
+        cogoToast.success("Update Success")
     }
 
 

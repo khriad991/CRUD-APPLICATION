@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import {Button, FormControl, FormGroup, Input, InputLabel, styled, Typography} from "@mui/material";
 import {addUser} from "../services/CrudApi";
 import {useNavigate} from "react-router-dom";
+import cogoToast from "cogo-toast";
 
 
 
@@ -11,7 +12,6 @@ import {useNavigate} from "react-router-dom";
         ${"h3"} {
             font-weight: 600;
             color: #13c797;
-            margin: ;
       },
       ${"div"}{
            margin-bottom: 1rem;
@@ -47,7 +47,9 @@ const AddUser = () => {
     const navigate = useNavigate()
     const AddUserDetails = async () => {
        await addUser(user);
-       navigate('/all')
+       cogoToast.success("success")
+        navigate('/all')
+
     }
     
     return (

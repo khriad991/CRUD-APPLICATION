@@ -30,10 +30,10 @@ app.get('*', (req,res)=>{
 })
 
 
-const pass =process.env.DB_PASSWORD;
+const pass =process.env.DB_PASSWORD || "testcrud991"
 let port = process.env.PORT || 9000;
 
-const user =process.env.DB_USER
+const user =process.env.DB_USER || "testcrud991";
 ConnectionDB(user,pass)
 app.listen(port,()=>{console.log(`Application Runing Port @${port}`)})
 

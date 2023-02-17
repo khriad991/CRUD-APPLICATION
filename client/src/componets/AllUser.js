@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Button, styled, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 import {getUsers,DeleteUser} from "../services/CrudApi";
 import {Link} from "react-router-dom"
-import {Toast} from "react-hot-toast";
 import cogoToast from "cogo-toast";
 
 // meterials ul ------------
@@ -36,6 +35,7 @@ const AllUser = () => {
     const deleteUseData =async (id) => {
         await DeleteUser(id)
         getAlluser()
+        cogoToast.success("Delete Success")
     }
 
     const getAlluser =async ()=>{
